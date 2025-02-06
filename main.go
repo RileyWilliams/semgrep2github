@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	reportFile = flag.String("report", "report.json", "path to the semgrep report")
+	reportFile = flag.String("report", "", "path to the semgrep report")
 )
 
 // SemgrepMetadata represents metadata about a finding
@@ -156,6 +156,12 @@ func createMarkdownComment(results []CliMatch) string {
 
 func main() {
 	flag.Parse()
+
+	// if no report file is provided, read from stdin, else print usage prompt
+	if *reportFile == "" {
+		fmt.Println("Usage: semgrep2github -report <path to report.json>")
+		os.Exit(1)
+	}
 
 	// Read the JSON file
 	data, err := os.ReadFile(*reportFile)
