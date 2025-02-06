@@ -1,0 +1,165 @@
+{
+    "version": "1.100.0",
+    "results": [
+        {
+            "check_id": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+            "path": "Dockerfile",
+            "start": {
+                "line": 66,
+                "col": 1,
+                "offset": 1809
+            },
+            "end": {
+                "line": 66,
+                "col": 38,
+                "offset": 1846
+            },
+            "extra": {
+                "metavars": {
+                    "$...VARS": {
+                        "start": {
+                            "line": 66,
+                            "col": 12,
+                            "offset": 1820
+                        },
+                        "end": {
+                            "line": 66,
+                            "col": 38,
+                            "offset": 1846
+                        },
+                        "abstract_content": "[\"./docker-entrypoint.sh\"]"
+                    }
+                },
+                "message": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
+                "fix": "USER non-root\nENTRYPOINT [\"./docker-entrypoint.sh\"]",
+                "metadata": {
+                    "cwe": [
+                        "CWE-269: Improper Privilege Management"
+                    ],
+                    "category": "security",
+                    "technology": [
+                        "dockerfile"
+                    ],
+                    "confidence": "MEDIUM",
+                    "owasp": [
+                        "A04:2021 - Insecure Design"
+                    ],
+                    "references": [
+                        "https://owasp.org/Top10/A04_2021-Insecure_Design"
+                    ],
+                    "subcategory": [
+                        "audit"
+                    ],
+                    "likelihood": "LOW",
+                    "impact": "MEDIUM",
+                    "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+                    "vulnerability_class": [
+                        "Improper Authorization"
+                    ],
+                    "source": "https://semgrep.dev/r/dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+                    "shortlink": "https://sg.run/k281",
+                    "semgrep.dev": {
+                        "rule": {
+                            "origin": "community",
+                            "r_id": 47272,
+                            "rule_id": "ReUW9E",
+                            "rv_id": 945268,
+                            "url": "https://semgrep.dev/playground/r/K3TJbJg/dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+                            "version_id": "K3TJbJg"
+                        }
+                    }
+                },
+                "severity": "ERROR",
+                "fingerprint": "7da8d238c6eb30213b97da7dd98191512a1c3577789e98edd6039454b3bc169747ee4302b9c9ae2081dd4e95d0ff35c2511488bb8cbb80a11f6b4713ee3eaaff_0",
+                "lines": "ENTRYPOINT [\"./docker-entrypoint.sh\"]",
+                "is_ignored": false,
+                "validation_state": "NO_VALIDATOR",
+                "engine_kind": "OSS"
+            }
+        },
+        {
+            "check_id": "dockerfile.security.missing-user.missing-user",
+            "path": "Dockerfile",
+            "start": {
+                "line": 67,
+                "col": 1,
+                "offset": 1847
+            },
+            "end": {
+                "line": 67,
+                "col": 35,
+                "offset": 1881
+            },
+            "extra": {
+                "metavars": {
+                    "$...VARS": {
+                        "start": {
+                            "line": 67,
+                            "col": 5,
+                            "offset": 1851
+                        },
+                        "end": {
+                            "line": 67,
+                            "col": 35,
+                            "offset": 1881
+                        },
+                        "abstract_content": "[\"nginx\"\"-g\"\"daemon off;\"]"
+                    }
+                },
+                "message": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
+                "fix": "USER non-root\nCMD [\"nginx\", \"-g\", \"daemon off;\"]",
+                "metadata": {
+                    "cwe": [
+                        "CWE-269: Improper Privilege Management"
+                    ],
+                    "category": "security",
+                    "technology": [
+                        "dockerfile"
+                    ],
+                    "confidence": "MEDIUM",
+                    "owasp": [
+                        "A04:2021 - Insecure Design"
+                    ],
+                    "references": [
+                        "https://owasp.org/Top10/A04_2021-Insecure_Design"
+                    ],
+                    "subcategory": [
+                        "audit"
+                    ],
+                    "likelihood": "LOW",
+                    "impact": "MEDIUM",
+                    "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+                    "vulnerability_class": [
+                        "Improper Authorization"
+                    ],
+                    "source": "https://semgrep.dev/r/dockerfile.security.missing-user.missing-user",
+                    "shortlink": "https://sg.run/Gbvn",
+                    "semgrep.dev": {
+                        "rule": {
+                            "origin": "community",
+                            "r_id": 20148,
+                            "rule_id": "AbUN06",
+                            "rv_id": 945269,
+                            "url": "https://semgrep.dev/playground/r/qkT4j4L/dockerfile.security.missing-user.missing-user",
+                            "version_id": "qkT4j4L"
+                        }
+                    }
+                },
+                "severity": "ERROR",
+                "fingerprint": "c6fafae6c7bb045cd4b7fe70ea41e04f924f732554fca45fc44f35b44c954cb688e213s935442285abdf6a8b04550f3c1971db94b66b78c2dcb528d6dda06470_0",
+                "lines": "CMD [\"nginx\", \"-g\", \"daemon off;\"]",
+                "is_ignored": false,
+                "validation_state": "NO_VALIDATOR",
+                "engine_kind": "OSS"
+            }
+        }
+    ],
+    "errors": [],
+    "paths": {
+        "scanned": [
+            "Dockerfile"
+        ]
+    },
+    "interfile_languages_used": [],
+    "skipped_rules": []
+}
